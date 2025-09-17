@@ -1,0 +1,388 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  z-index: 10;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+header nav ul li {
+  margin-left: 30px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.3s, color 0.3s;
+  display: inline-block;
+}
+
+header nav ul li a:hover {
+  color: #6dee03; 
+  transform: scale(1.1);
+}
+
+.bienvenida {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.bienvenida .contenido {
+  animation: fadeInUp 1s forwards;
+}
+
+.bienvenida .contenido h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.bienvenida .contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.bienvenida .btn {
+  padding: 12px 30px;
+  background: #6dee03;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.bienvenida .btn:hover {
+  background: #bafd7b;
+  transform: scale(1.05);
+}
+
+.video-procesos {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.video-container-procesos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#video-procesos-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-procesos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.contenido-procesos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.contenido-procesos .texto {
+  flex: 1;
+  margin-right: 50px;
+  animation: fadeInUp 1s forwards;
+}
+
+.contenido-procesos .texto h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.contenido-procesos .texto p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.contenido-procesos .texto .btn {
+  padding: 12px 30px;
+  background: #6dee03; 
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contenido-procesos .texto .btn:hover {
+  background: #bafd7b;
+  transform: scale(1.05);
+}
+
+.contenido-procesos .procesos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeInUp 1s forwards;
+}
+
+.proceso h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.proceso p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.carrusel-procesos {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.slides-container {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+}
+
+.slide {
+  min-width: 200px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  flex-shrink: 0;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s;
+}
+
+.slide:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.video-container-comentarios {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#video-comentarios-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-comentarios {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.contenido-comentarios {
+  position: relative;
+  padding: 80px 50px;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  animation: fadeInUp 1s forwards;
+}
+
+.contenido-comentarios h2 {
+  font-size: 2.5rem;
+  color: #6dee03; 
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.comentarios-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.comentario {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.5s forwards;
+}
+
+.comentario:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(110, 238, 3, 0.5);
+}
+
+.comentario p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.comentario span {
+  font-weight: 700;
+  color: #6dee03;
+}
+
+.formulario-comentario {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  animation: fadeInUp 0.5s forwards;
+}
+
+.formulario-comentario h3 {
+  color: #6dee03;
+  margin-bottom: 20px;
+}
+
+.formulario-comentario input,
+.formulario-comentario textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border: 1px solid #555;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.formulario-comentario input::placeholder,
+.formulario-comentario textarea::placeholder {
+  color: #ccc;
+}
+
+.formulario-comentario button {
+  padding: 12px 25px;
+  background: #6dee03;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.formulario-comentario button:hover {
+  background: #bafd7b;
+  transform: scale(1.05);
+}
+
